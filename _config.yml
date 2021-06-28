@@ -6,7 +6,7 @@ dark-theme: gondola # possible values [big-stone, gondola, black]
 
 enable-math: true
 site-url: https://slashformotion.github.io
-base-url: /jekyll-awsm.css
+baseurl: /jekyll-awsm.css
 
 plugins:
   - jekyll-paginate
