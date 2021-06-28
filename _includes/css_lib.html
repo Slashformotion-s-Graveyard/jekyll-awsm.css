@@ -1,0 +1,51 @@
+
+<style>
+    {% capture scss_sheet %}{% include style.scss %}{% endcapture %}
+    {{ scss_sheet | scssify }}
+</style>
+
+
+{% comment %} Here we capture the theme {% endcomment %}
+{%- capture light_theme -%}
+    {% if site.light-theme  %}
+    {{site.light-theme}}
+    {% else if %}
+    white
+    {% endif %}
+{%- endcapture -%}
+
+{%- capture dark_theme -%}
+    {% if site.dark-theme  %}
+    {{site.dark-theme}}
+    {% else if %}
+    big-stone
+    {% endif %}
+{%- endcapture -%}
+
+{% comment %} Dark Syntax {% endcomment %}
+{%- assign syntax_dark = "base16.dark" -%}
+{% if site.dark-theme == "black" %}
+    {% assign syntax_dark = "base16.monokai.dark" %}
+{% endif %}
+{% if site.dark-theme == "big-stone" %}
+    {% assign syntax_dark = "thankful_eyes" %}
+{% endif %}
+{% if site.dark-theme == "gondola" %}
+    {% assign syntax_dark = "gruvbox.dark" %}
+{% endif %}
+
+{% comment %} Light Syntax {% endcomment %}
+{%- assign syntax_light = "github" -%}
+
+
+
+{% comment %} Dark Theme  {% endcomment %}
+<link rel="stylesheet" href="/assets/dist/awsm.css/awsm_theme_{{dark_theme | strip}}.min.css" media="(prefers-color-scheme: dark)">
+{% comment %} Light Theme  {% endcomment %}
+<link rel="stylesheet" href="/assets/dist/awsm.css/awsm_theme_{{light_theme | strip}}.min.css" media="(prefers-color-scheme: no-preference), (prefers-color-scheme: light)">
+
+<!-- ROUGE -->
+{% comment %} Dark Theme  {% endcomment %}
+<link rel="stylesheet" href="/assets/dist/rouge/syntax-{{syntax_dark}}.css" media="(prefers-color-scheme: dark)">
+{% comment %} Light Theme  {% endcomment %}
+<link rel="stylesheet" href="/assets/dist/rouge/syntax-{{syntax_light}}.css" media="(prefers-color-scheme: no-preference), (prefers-color-scheme: light)">

@@ -1,0 +1,62 @@
+title: Awsm.css-Jekyll
+catch-line: "A jekyll theme based on the css framework: awsm.css."
+
+light-theme: white # possible values [white, mischka, tasman, pearl-lusta, pastel-pink]
+dark-theme: gondola # possible values [big-stone, gondola, black]
+
+enable-math: true
+
+plugins:
+  - jekyll-paginate
+  - jekyll-admin
+  - jekyll-archives
+
+sass:
+  sass_dir: _sass
+  style: compressed
+
+# if you do/don't need pagination, toggle 'enabled' between true/false below
+pagination:
+  enabled: true
+  sort_reverse: true # display recent posts first
+  title: ":title" # Changing this will mess up the header display logic
+  per_page: 5
+  permalink: "/:num/" # pagination link that will be appended
+
+paginate: 5
+paginate_path: "/blog/page:num/"
+
+
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+jekyll-archives:
+  enabled: 
+    - year
+    - month
+    - tags
+    - categories
+  layouts:
+    year: year-archive
+    month: month-archive
+    category: tag-category-archive
+    tag: tag-category-archive
+  permalinks:
+    year: '/archives/:year/'
+    month: '/archives/:year/:month/'
+    tag: '/tag/:name/'
+    category: '/category/:name/'
+  slug_mode: latin
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - Rakefile
+  - README.md
+  - LICENSE.txt
+  - CHANGELOG.md
+  - jekyll-whiteglass.gemspec
+  - screenshot.png
+  - vendor
+  - node-modules

@@ -1,0 +1,38 @@
+<header>
+    <h1>{{site.title}}</h1>
+    <p>{{site.catch-line}}</p>
+    <nav>
+        <ul>
+            {% if page.title != "Home" %}
+            <li>
+                <a href="/">Home</a>
+            </li>
+            {% else if %}
+            <li>
+                Home
+            </li>
+
+            {% endif %}
+            {% if page.title != "Archives" %}
+            <li class="nav-item">
+                <a href="/archives.html">Archives</a>
+            </li>
+            {% else if %}
+            <li>
+                Archives
+            </li>
+            {% endif %}
+            {% if page.title != "About" %}
+            <li class="nav-item">
+                <a href="/about.html">About</a>
+            </li>
+            {% else if %}
+            <li>
+                About
+            </li>
+            {% endif %}
+        </ul>
+
+    </nav>
+    <hr>
+</header>

@@ -1,0 +1,19 @@
+<div class="ui-flex pagination">
+        <div class="previous">
+                {% if paginator.previous_page %}
+                <a href="{{ site.url }}{{ paginator.previous_page_path }}" class="previous">«</a>
+                {% else %}
+                <span class="pagination hidden">«</span>
+                {% endif %}
+        </div>
+        
+        <span class="page_number ">page {{ paginator.page }} of {{ paginator.total_pages }}</span>
+        
+        {% if paginator.next_page %}
+        <div class="next">
+                <a href="{{ site.url }}{{ paginator.next_page_path }}" class="next">»</a>
+                {% else %}
+                <span class="pagination hidden">»</span>
+                {% endif %}
+        </div>
+</div>
