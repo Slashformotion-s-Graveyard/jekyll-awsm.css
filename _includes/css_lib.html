@@ -22,6 +22,10 @@
     {% endif %}
 {%- endcapture -%}
 
+{%- capture light_css_path -%}/assets/dist/awsm.css/awsm_theme_{{light_theme | strip}}.min.css{%- endcapture -%}
+{%- capture dark_css_path -%}/assets/dist/awsm.css/awsm_theme_{{dark_theme | strip}}.min.css{%- endcapture -%}
+
+
 {% comment %} Dark Syntax {% endcomment %}
 {%- assign syntax_dark = "base16.dark" -%}
 {% if site.dark-theme == "black" %}
@@ -37,15 +41,17 @@
 {% comment %} Light Syntax {% endcomment %}
 {%- assign syntax_light = "github" -%}
 
+{%- capture light_syntax_css_path -%}/assets/dist/rouge/syntax-{{syntax_light}}.css{%- endcapture -%}
+{%- capture dark_syntax_css_path -%}/assets/dist/rouge/syntax-{{syntax_dark}}.css{%- endcapture -%}
 
 
 {% comment %} Dark Theme  {% endcomment %}
-<link rel="stylesheet" href="{{ site.site-url }}{{ site.base-url }}/assets/dist/awsm.css/awsm_theme_{{dark_theme | strip}}.min.css" media="(prefers-color-scheme: dark)">
+<link rel="stylesheet" href="{{ dark_css_path | relative_url }}" media="(prefers-color-scheme: dark)">
 {% comment %} Light Theme  {% endcomment %}
-<link rel="stylesheet" href="{{ site.site-url }}{{ site.base-url }}/assets/dist/awsm.css/awsm_theme_{{light_theme | strip}}.min.css" media="(prefers-color-scheme: no-preference), (prefers-color-scheme: light)">
+<link rel="stylesheet" href="{{ light_css_path | relative_url }}" media="(prefers-color-scheme: no-preference), (prefers-color-scheme: light)">
 
 <!-- ROUGE -->
 {% comment %} Dark Theme  {% endcomment %}
-<link rel="stylesheet" href="{{ site.site-url }}{{ site.base-url }}/assets/dist/rouge/syntax-{{syntax_dark}}.css" media="(prefers-color-scheme: dark)">
+<link rel="stylesheet" href="{{ dark_syntax_css_path | relative_url }}" media="(prefers-color-scheme: dark)">
 {% comment %} Light Theme  {% endcomment %}
-<link rel="stylesheet" href="{{ site.site-url }}{{ site.base-url }}/assets/dist/rouge/syntax-{{syntax_light}}.css" media="(prefers-color-scheme: no-preference), (prefers-color-scheme: light)">
+<link rel="stylesheet" href="{{ light_syntax_css_path | relative_url }}" media="(prefers-color-scheme: no-preference), (prefers-color-scheme: light)">

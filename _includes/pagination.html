@@ -1,7 +1,7 @@
 <div class="ui-flex pagination">
         <div class="previous">
                 {% if paginator.previous_page %}
-                <a href="{{ site.url }}{{ paginator.previous_page_path }}" class="previous">«</a>
+                <a href="{{ paginator.previous_page_path | relative_url  }}" class="previous">«</a>
                 {% else %}
                 <span class="pagination hidden">«</span>
                 {% endif %}
@@ -11,7 +11,7 @@
         
         {% if paginator.next_page %}
         <div class="next">
-                <a href="{{ site.url }}{{ paginator.next_page_path }}" class="next">»</a>
+                <a href="{{ paginator.next_page_path | relative_url }}" class="next">»</a>
                 {% else %}
                 <span class="pagination hidden">»</span>
                 {% endif %}

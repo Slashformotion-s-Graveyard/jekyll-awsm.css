@@ -5,7 +5,7 @@
         <ul>
             {% if page.title != "Home" %}
             <li>
-                <a href="/">Home</a>
+                <a href="{{"/" | relative_url}}">Home</a>
             </li>
             {% else if %}
             <li>
@@ -15,7 +15,7 @@
             {% endif %}
             {% if page.title != "Archives" %}
             <li class="nav-item">
-                <a href="/archives.html">Archives</a>
+                <a href="{{"/archives.html" | relative_url}}">Archives</a>
             </li>
             {% else if %}
             <li>
@@ -24,7 +24,7 @@
             {% endif %}
             {% if page.title != "About" %}
             <li class="nav-item">
-                <a href="/about.html">About</a>
+                <a href="{{"/about.html" | relative_url}}">About</a>
             </li>
             {% else if %}
             <li>
